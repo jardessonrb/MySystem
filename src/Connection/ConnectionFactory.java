@@ -25,8 +25,8 @@ public class ConnectionFactory {
     public static Connection getConnection(){
         try {
             Class.forName(DRIVER);
-            
-            return DriverManager.getConnection(URL, USER, PASS);
+            Connection conexao = DriverManager.getConnection(URL, USER, PASS);
+            return conexao;
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RuntimeException("Erro na conexão:", ex);
 
@@ -67,5 +67,6 @@ public class ConnectionFactory {
         }
         closeConnection(con, stmt);
     }
-    
+
+
 }
